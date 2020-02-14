@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BE911175-73C4-4378-BC42-7871EB12DCE4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WorkLog</RootNamespace>
+    <AssemblyName>WorkLog</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAO\AdjustmentWorkResultTableDAO.cs" />
+    <Compile Include="DAO\ConfigDAO.cs" />
+    <Compile Include="DAO\DbUtility.cs" />
+    <Compile Include="DAO\DepartmentMasterDAO.cs" />
+    <Compile Include="DAO\PerformedWorkTableDAO.cs" />
+    <Compile Include="DAO\TempWorkOrdetItemDAO.cs" />
+    <Compile Include="DAO\WorkerViewDAO.cs" />
+    <Compile Include="DAO\WorkOrderViewDAO.cs" />
+    <Compile Include="Data\AcceptDepartmentInfo.cs" />
+    <Compile Include="Data\ChargeDepartmentInfo.cs" />
+    <Compile Include="Data\TempWorkOrderItem.cs" />
+    <Compile Include="Data\ConfigItem.cs" />
+    <Compile Include="Data\ConfigPathItem.cs" />
+    <Compile Include="Data\DepartmentItem.cs" />
+    <Compile Include="Data\PerformedWorkOrderItem.cs" />
+    <Compile Include="Data\WorkerItem.cs" />
+    <Compile Include="Data\WorkOrderItem.cs" />
+    <Compile Include="Forms\PerformedWorkOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PerformedWorkOrderForm.Designer.cs">
+      <DependentUpon>PerformedWorkOrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PerformedWorkOrderGridView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\PerformedWorkOrderGridView.Designer.cs">
+      <DependentUpon>PerformedWorkOrderGridView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProcessLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProcessLog.Designer.cs">
+      <DependentUpon>ProcessLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ProcessSheetEditDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ProcessSheetEditDlg.Designer.cs">
+      <DependentUpon>ProcessSheetEditDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SelectWorkOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SelectWorkOrderForm.Designer.cs">
+      <DependentUpon>SelectWorkOrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TempWorkOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TempWorkOrderForm.Designer.cs">
+      <DependentUpon>TempWorkOrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WorkLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WorkLog.Designer.cs">
+      <DependentUpon>WorkLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\AdjustmentWorkTableManage.cs" />
+    <Compile Include="Manage\ConfigManage.cs" />
+    <Compile Include="Manage\TempWorkOrderManage.cs" />
+    <Compile Include="Manage\WorkerViewManage.cs" />
+    <Compile Include="Manage\DepartmentMasterManage.cs" />
+    <Compile Include="Manage\PerformedWorkTableManage.cs" />
+    <Compile Include="Manage\WorkOrderViewManage.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\ApplicationSettings.cs" />
+    <EmbeddedResource Include="Forms\PerformedWorkOrderForm.resx">
+      <DependentUpon>PerformedWorkOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PerformedWorkOrderGridView.resx">
+      <DependentUpon>PerformedWorkOrderGridView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProcessLog.resx">
+      <DependentUpon>ProcessLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\ProcessSheetEditDlg.resx">
+      <DependentUpon>ProcessSheetEditDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SelectWorkOrderForm.resx">
+      <DependentUpon>SelectWorkOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TempWorkOrderForm.resx">
+      <DependentUpon>TempWorkOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WorkLog.resx">
+      <DependentUpon>WorkLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
